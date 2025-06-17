@@ -65,6 +65,17 @@ To initialize tuples, arrays, ..., you could start from listcomp, but genexp sav
 
 ## Pattern Matching with Sequences
 
+- `match/case` statement
+  - May look similar to `switch/case` from C language, however...
+  - Key improvement is _destructuring_: more advanced  form of unpacking
+  - see 2_matchcase.py
+
+
+- Pattern matching seq in interpreter
+  - can replace if/else,
+  - evaluate example where first argument `expression` is checked using match
+
+
 
 ## Slicing
 
