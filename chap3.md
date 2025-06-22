@@ -34,12 +34,38 @@
 - Pattern matching with mappings (`match/case`)
   - see 3_pattern_matching.py
 
+
 ## Standard API of Mapping Types
+
+- `collections.abc` (abstract base classes) provide `Mapping` and `MutableMapping`
+- Main value of ABCs is documenting and formalizing the standard interfaces for mappings, and serving as criteria for `isinstance` tests in code.
+  - `isinstance({}, abc.Mapping) -> True`
+  - Using `isinstance` is often better than checking if is of concrete `dict` type
+
+
+- What is hashable
+  - An object is hashable if it has a hash code which never changes during its lifetime (needs `__hash__()` method)
+  - And can be compared to other objects (needs an `__eq__()` method)
+  - Hashable objects which compare equal must have same hash code
+  - Hashing converts input data (string, file, object, ...) into fixed-size string of bytes
+  - Common use in security is password storage.
+  - A tuple is hashable only if all its items are hashable
+
+
+- Inserting of Updating mutable values
+  - In line with "fail fast", `dict` access with `d[k]` raises error if not existing key. `d.get(k, default)` is an alternative whenever default value is more convenient than an error.
+  - If you want to retrieve mutable value and update, there is a better way 
+  - using `my_dict.setdefault(key, []).append(new_value)`
+  - checks if key is not in dictionary, then inserts `[]`, else appends new value to existing key.
 
 ## Automatic Handling of Missing Keys
 
+
 ## Variations of dict
+
 
 ## Set theory
 
+
 ## Practical consequences of how sets works
+
