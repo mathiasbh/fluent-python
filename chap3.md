@@ -58,8 +58,18 @@
   - using `my_dict.setdefault(key, []).append(new_value)`
   - checks if key is not in dictionary, then inserts `[]`, else appends new value to existing key.
 
+
 ## Automatic Handling of Missing Keys
 
+- defaultdict
+  - Creats items with a default value on demand whenever a missing key is searched
+  - Uses the special method `__missing__`
+
+
+- The `__missing__` method
+  - Deals with missing keys
+  - Not defined in `dict`, but aware of it. So if you subclass `dict` and provide a `__missing__`, the `__getitem__` will call it whenever a key is not found instead of `KeyError`
+  
 
 ## Variations of dict
 
