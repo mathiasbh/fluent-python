@@ -73,9 +73,45 @@
 
 ## Variations of dict
 
+- `collections.OrderedDict`
+  - Built-in dict keeps the key ordered by default now.
+  - So this is for backward compatibility
+
+- `collections.ChainMap`
+  - This instance holds a list of mappings that can be searched as one.
+  - Lookup is performed on each input mapping in the order it appears and succeeds as soon as key is found.
+  - `chain = ChainMap(some_dict1, some_dict2)`
+  - The chainmap does not copy input mappings, but holds references.
+  - Updates or insertions only affect the first input mapping
+  - "ChainMap is useful to implement interpreters for languages with nested scopes, where ecah mapping represents a scope context, from the inntermost enclosing scope to the outermost scope."
+
+- `collections.Counter`
+  - Holds an integer count for each key.
+  - Updaing an existing key adds to its count (`ct.update('aaabbc')` --> `Counter({'a':3, ...})`)
+  - `ct.most_common(3)` -> three most common of `ct`.
+
+- `shelve.Shelf`
+  - Provides persistent storage for a mapping of string keys, serialized in `pickle` binary format.
+  - Pickle is easy to use in simplest case, but has drawbacks.
+
+
+- Subclassing `UserDict` instead of dict
+  - It's better to create new mapping type by extending `collections.UserDict` than `dict`.
+  - When using `dict`, we end up overriding methods
+
+
+## Immutable Mappings
+
+
+## Dictionary Views
+
+
+
+
+## Practical consequences of how dict works
+
 
 ## Set theory
-
 
 ## Practical consequences of how sets works
 
