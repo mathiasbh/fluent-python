@@ -1,0 +1,16 @@
+# collections module - container datatypes
+
+- Implements specialized container datatypes provinding alternatives to Python's general purpose built-in containers (`dict`, `list`, `set`, `tuple`)
+
+
+# Mappings
+- Mappings are structures that store data in key-value pairs.
+- Efficient for lookups, insertions, deletions.
+- Dictionaries are the most common
+
+
+# Hash tables
+- Data structure that stores key- value pairs and allow for fast data retrieval
+- It uses hash function to compute and index (hash code) into an array
+- They offer average-case constant time complexity `O(1)` for lookups, insertions, deletion
+- `dict`.
