@@ -102,16 +102,58 @@
 
 ## Immutable Mappings
 
+- Standard library mappings are all mutable, but you may need to prevent users from changing mappings by accident
+- The `types` module provide wrapper class `MappingProxyType`
+  - returns read-only by dynamic proxy of original mapping that is given as input
+  - `d_proxy = MappingProxyType(some_dict) -> mappingproxy(some_dict)`
+  - Changes cannot be made to `d_proxy`, but you can to `some_dict` which is reflected to `d_proxy`.
+  - Expose proxy to clients (to public).
 
 ## Dictionary Views
 
-
+- The `dict` instance methods `.keys()`, `.values()`, and `.items()` return instances of classes called `dict_keys`, `dict_values`, `dict_items`.
+- They are read-only projections of internal data structures (a view).
+- A view object is a dynamic proxy
 
 
 ## Practical consequences of how dict works
 
+- Hash table implementation of `dict` is very efficient:
+  - Keys must be hashable objects (must implement proper `__hash__` and `__eq__`)
+  - Item access by key is very fast. Python can locate key directly by computing the hash code of the key and derive index
+  - Key ordering is preserved as side effect of more compact memory layout
+  - They have significant memory overhead (more memory usage than other types)
+  - To save memory, avoid creating instance attributes outside `__init__` method
+    * Why? Python's default behaviour is to store instance attributes in special `__dict__` attribute (see PEP 412)
+    * class can share common hash table stored with the class
+    * Now python share the keys (attribute names) across all instances of a class - but only if those attributes are defined in the `__init__`.
+    * if you add new attribute after that, python can no longer share the keys - so fall back to old method by creating its own full `__dict__`.
+    * Reduces memory about 10-20% for OOP.
+
 
 ## Set theory
 
+- Sets still somewhat underused
+- Type `set` and its immutable sibling `frozenset`
+- Basic usecase to remove duplication: `list(set(some_list))`.
+- Set elements must be hashable. The set type is not hashable
+- Frozenset is hashable
+- `Infix` operators like 
+  - union: `a | b`, 
+  - intersection: `a & b`, 
+  - difference: `a - b`
+  - symmetric difference: `a ^ b`
+- e.g. large set of emails and a smaller set of addresses, you need to count many many addresses occur in emails.
+  - Use intersection ( `&` ): `len(addreses & emails)`
+
+
+- Set literals: `type({1, 2, 3}) -> type set`. Faster than `set([1,2,3])`.
+
 ## Practical consequences of how sets works
 
+- Set Implemented with hash tables, gives these effects
+  - Set elements must be hashable objects
+  - Membership testing is very efficient. Set may have millions of elements, element may be located directly by computing its hash code and derive index
+  - Sets have significant memory overhead, compared to array pointers (tuples)
+  - Element ordering depends on insertion order
+  - Adding elements to set may change order of existing elements
