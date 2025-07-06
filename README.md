@@ -1,0 +1,3 @@
+# What?
+
+Just me going through Fluent Python book and taking notes, coding the examples to see what happens...

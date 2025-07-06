@@ -14,3 +14,7 @@
 - It uses hash function to compute and index (hash code) into an array
 - They offer average-case constant time complexity `O(1)` for lookups, insertions, deletion
 - `dict`.
+
+
+# Dataclass.dataclass
+- Decorator `@dataclass` for classes to build data class.
