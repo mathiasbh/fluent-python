@@ -48,10 +48,58 @@ Coordinate = typing.NamedTuple('Coordinate', [('lat', float), ('lon', float)])
 
 ## Classic named tuples
 
+- `collections.namedtuple` is a factory that builds subclasses of `tuple` enhanced with
+  - field names
+  - class name
+  - informative `__repr__`
+- Can be used anywhere where `tuple`s are needed
+- `abc = namedtuple('typename', 'field_names') -> class with name typename(fieldname1 = ..., fieldname2 = ...)`
+
+
+```
+Coordinate = namedtuple('Coordinate', 'lat lon reference', defaults=['WGS84'])
+Coordinate(0,0) --> Coordinate(lat=0, lon=0, reference='WGS84')
+Coordinate._field_defaults --> {'reference': 'WGS84'}
+```
+
+
 ## Typed named tuples
+
+The above can be re-written using `typing.NamedTuple`
+
+```
+class Coordinate(typing.NamedTuple):
+    lat: float
+    lon: float
+    reference: str = 'WGS84'
+```
 
 
 ## Type hints 101
+
+Type hints or Type Annotations
+- ways to declare expected type of function arguments, return values, variables, attributes
+- They are not enforced at all by python bytecode compiler and interpreter
+
+
+### No runtime effects
+
+- Type hints can be thought as "documentation that can be verified by IDEs and type checkers"
+- They have no impact on runtime in python
+- use mypy
+
+### Variable annotation syntax
+Syntax
+
+- `var_name: some_type` (`lat: float`)
+- `list[int], tuple[str, float]`
+- `typing,Optional` like `Optional[str]` to declare field that can be `str` or `None`
+- `var_name: some_type = some_value` (`lat: float = 1.5`)
+
+
+### Meaning of variable annotations
+
+
 
 
 ## More about `@dataclass`

@@ -18,3 +18,10 @@
 
 # Dataclass.dataclass
 - Decorator `@dataclass` for classes to build data class.
+
+
+# Type hints
+A way to declare expected type of function arguments, return values, variables, attributes
+- `list[int], tuple[str, float]`
+- `typing,Optional` like `Optional[str]` to declare field that can be `str` or `None`
+- `var_name: some_type = some_value` (`lat: float = 1.5`)
