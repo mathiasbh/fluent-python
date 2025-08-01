@@ -14,7 +14,7 @@
 
 
 - Unpacking mappings
-  - We can apply `**` to mor ethan one argument. This works when keys are all strings and unique across all arguments
+  - We can apply `**` to more than one argument. This works when keys are all strings and unique across all arguments
   - see 3_unpacking_mappings.py
   -  `{'a': 0, **{'x': 1}, 'y': 2, **{'z': 3, 'x': 4}}`, the second `z` overwrites the first one.
 
@@ -46,8 +46,8 @@
 - What is hashable
   - An object is hashable if it has a hash code which never changes during its lifetime (needs `__hash__()` method)
   - And can be compared to other objects (needs an `__eq__()` method)
-  - Hashable objects which compare equal must have same hash code
-  - Hashing converts input data (string, file, object, ...) into fixed-size string of bytes
+  - Hashable objects which cvompare equal must have same hash code
+  - Hashing conserts input data (string, file, object, ...) into fixed-size string of bytes
   - Common use in security is password storage.
   - A tuple is hashable only if all its items are hashable
 
