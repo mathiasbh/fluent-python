@@ -99,9 +99,43 @@ Syntax
 
 ### Meaning of variable annotations
 
-
-
+- Type hints have no effect at runtime
+- When module is loaded, then python read them and build `__annotations__` that `NamedTuple` and `@dataclass` then use.
+- `__annotations__` is created to record the type hints in source code
 
 ## More about `@dataclass`
+- Decorator accepts several keyword arguments
+  - ```
+  @dataclass(*, init=True, repr=True, eq=True, order=False,
+    unsafe_hash=False, frozen=False)
+  ```
+  - frozen makes isntances "immutable"
+- Defaults are most useful settings in common cases
+- Frozen to protect accidental changes
+- order allows for sorting
+
+
+### Field Options
+
+
+
+### Post-init processing
+
+
+### Typed Class Attributes
+
+
+### Initialization variables that are not fields
+
+
+### `@dataclass` example> dublin core resource record
+
+
+## Data Class as code smell
+
+
+
+## Pattern mathcing class instances
+
 
 
