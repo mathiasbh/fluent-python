@@ -18,7 +18,16 @@
 
 # Dataclass.dataclass
 - Decorator `@dataclass` for classes to build data class.
+- Easier to instantiate without using `__init__` and `self`.
+- Implements a `__repr__()` and `__eq__()` for nicer string representation and comparison
 
+```
+@dataclass
+class SomeClass"
+    name: str
+    guests: list[str] = field(default_factory=list)
+    athlete: bool = field(default=False, repr=False)
+```
 
 # Type hints
 A way to declare expected type of function arguments, return values, variables, attributes
