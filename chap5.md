@@ -143,13 +143,34 @@ Syntax
 - The variable will, though, be accepted by generated `__init__` and passed to `__post_init__`
 
 ### `@dataclass` example> dublin core resource record
-
+- example `5_19_20_21_dataclass_example.py`
 
 ## Data Class as code smell
+- Fowler use dataclass as one exmaple ofcode smell
+- It may be sign of poor design, and need of refactor
+- Idea of OOP: place behaviour and data together in same code unit
 
 
+- Data class as scaffolding
+  - Start simple 
+  - Build on it
 
-## Pattern mathcing class instances
+- Data class as intermediate representation
+  - data class useful to build records about to be exported to JSON or another
+  - or, hold data that was just imported
+  - data class can easily be converted to plain dict, which is close to JSON
+  - Then data class should be immutable 
 
 
+## Pattern matching class instances
+
+- Simple class patterns
+  - a
+- Keyword class patterns
+  - a
+
+- Positional class patterns
+  - a
+
+-  
 
