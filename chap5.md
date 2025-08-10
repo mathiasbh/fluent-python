@@ -163,14 +163,13 @@ Syntax
 
 
 ## Pattern matching class instances
+Class patterns are designed to match class instances by type. There are three variations: 
 
 - Simple class patterns
-  - a
+  - Already seen example `case [str(name), _, _, (float(lat), float(lon))]:`
+  - This pattern matches four-item sequence, where first item is string, and last item must be 2-tuple of type float
 - Keyword class patterns
-  - a
-
 - Positional class patterns
-  - a
 
--  
+ 
 
